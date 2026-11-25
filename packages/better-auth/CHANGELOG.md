@@ -1,5 +1,30 @@
 # better-auth
 
+## 1.7.29
+
+### Patch Changes
+
+- [#12959](https://github.com/better-auth/better-auth/pull/12959) [`017a985`](https://github.com/better-auth/better-auth/commit/017a985eea43bb3294661d70eaa5750eabfe9c4c) Thanks [@bytaesu](https://github.com/bytaesu)! - Sign-up no longer fails, or stores a wrong value, when the request includes an `input: false` field whose `defaultValue` is a function.
+
+- [#12962](https://github.com/better-auth/better-auth/pull/12962) [`59da7fb`](https://github.com/better-auth/better-auth/commit/59da7fbdcf522be816254e006237f2eb1f736bc6) Thanks [@bytaesu](https://github.com/bytaesu)! - `oneTap({ disableSignUp: true })` was ignored and `/one-tap/callback` still created new users. It now closes sign-up, and `disableSignup` stays as a deprecated alias.
+
+- [#12952](https://github.com/better-auth/better-auth/pull/12952) [`b87f41f`](https://github.com/better-auth/better-auth/commit/b87f41f1ae8007bc94c71cd7488ea5a3df3d9f0f) Thanks [@bytaesu](https://github.com/bytaesu)! - Organization dynamic role names are now trimmed when created or renamed, and names that are empty or contain a comma are rejected with `INVALID_ROLE_NAME`.
+
+- [#12956](https://github.com/better-auth/better-auth/pull/12956) [`61bfa16`](https://github.com/better-auth/better-auth/commit/61bfa16c5a5af3a444e33c61dcc280c99a30b723) Thanks [@gustavovalverde](https://github.com/gustavovalverde)! - Email OTP and phone number codes resent while a wrong guess was being checked are no longer replaced by the old code when verification lives only in secondary storage.
+
+- [#12956](https://github.com/better-auth/better-auth/pull/12956) [`61bfa16`](https://github.com/better-auth/better-auth/commit/61bfa16c5a5af3a444e33c61dcc280c99a30b723) Thanks [@gustavovalverde](https://github.com/gustavovalverde)! - Two-factor OTP codes resent while a wrong guess was being checked are no longer rejected in favor of the old code.
+
+- [#12955](https://github.com/better-auth/better-auth/pull/12955) [`6b883ac`](https://github.com/better-auth/better-auth/commit/6b883aca559598c756a0999523a508be20ab281a) Thanks [@bytaesu](https://github.com/bytaesu)! - Two-factor enable, disable and enrollment now keep the original sign-in time when they replace the session, even after a password check, so the replacement is only as fresh as the session it replaces for `session.freshAge`.
+
+- Updated dependencies [[`55513e8`](https://github.com/better-auth/better-auth/commit/55513e8533862f3f50efafc626d61ec927ae1728), [`55513e8`](https://github.com/better-auth/better-auth/commit/55513e8533862f3f50efafc626d61ec927ae1728), [`23adcb1`](https://github.com/better-auth/better-auth/commit/23adcb11d77b085b94c58cda78766ffda278d36d)]:
+  - @better-auth/core@1.7.29
+  - @better-auth/drizzle-adapter@1.7.29
+  - @better-auth/kysely-adapter@1.7.29
+  - @better-auth/memory-adapter@1.7.29
+  - @better-auth/mongo-adapter@1.7.29
+  - @better-auth/prisma-adapter@1.7.29
+  - @better-auth/telemetry@1.7.29
+
 ## 1.7.28
 
 ### Patch Changes

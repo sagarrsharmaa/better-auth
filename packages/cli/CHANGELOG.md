@@ -1,5 +1,18 @@
 # auth
 
+## 1.7.29
+
+### Patch Changes
+
+- [#12954](https://github.com/better-auth/better-auth/pull/12954) [`020e28c`](https://github.com/better-auth/better-auth/commit/020e28c3fe760953df25b2366fc63975d1176310) Thanks [@gustavovalverde](https://github.com/gustavovalverde)! - `auth generate` now gives a missing Prisma back-relation the same `@relation` name as the foreign-key side, so a schema with a named relation such as `@relation("UserSessions", fields: [userId], references: [id])` passes `prisma validate` instead of failing with P1012.
+
+  `auth generate` now stops with an error, instead of guessing or leaving the schema invalid, when it cannot add the back-relation safely: when several relations to the same model share the foreign key and more than one lacks a back-relation, or when the back-relation's default field name, such as `sessions`, is already taken. Add the back-relation yourself, then generate again.
+
+- Updated dependencies [[`55513e8`](https://github.com/better-auth/better-auth/commit/55513e8533862f3f50efafc626d61ec927ae1728), [`55513e8`](https://github.com/better-auth/better-auth/commit/55513e8533862f3f50efafc626d61ec927ae1728), [`23adcb1`](https://github.com/better-auth/better-auth/commit/23adcb11d77b085b94c58cda78766ffda278d36d), [`017a985`](https://github.com/better-auth/better-auth/commit/017a985eea43bb3294661d70eaa5750eabfe9c4c), [`59da7fb`](https://github.com/better-auth/better-auth/commit/59da7fbdcf522be816254e006237f2eb1f736bc6), [`b87f41f`](https://github.com/better-auth/better-auth/commit/b87f41f1ae8007bc94c71cd7488ea5a3df3d9f0f), [`61bfa16`](https://github.com/better-auth/better-auth/commit/61bfa16c5a5af3a444e33c61dcc280c99a30b723), [`61bfa16`](https://github.com/better-auth/better-auth/commit/61bfa16c5a5af3a444e33c61dcc280c99a30b723), [`6b883ac`](https://github.com/better-auth/better-auth/commit/6b883aca559598c756a0999523a508be20ab281a)]:
+  - @better-auth/core@1.7.29
+  - better-auth@1.7.29
+  - @better-auth/telemetry@1.7.29
+
 ## 1.7.28
 
 ### Patch Changes

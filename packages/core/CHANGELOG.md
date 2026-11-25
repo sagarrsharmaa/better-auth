@@ -1,5 +1,15 @@
 # @better-auth/core
 
+## 1.7.29
+
+### Patch Changes
+
+- [#12953](https://github.com/better-auth/better-auth/pull/12953) [`55513e8`](https://github.com/better-auth/better-auth/commit/55513e8533862f3f50efafc626d61ec927ae1728) Thanks [@gustavovalverde](https://github.com/gustavovalverde)! - When a committed transaction has several failing after-commit hooks and no `onAfterCommitHookError` handler, the first failure is still thrown and later failures from hooks that run are now logged. Previously only the first was reported, so a failed secondary-storage session revocation after a failing `session.delete.after` hook went unnoticed.
+
+- [#12953](https://github.com/better-auth/better-auth/pull/12953) [`55513e8`](https://github.com/better-auth/better-auth/commit/55513e8533862f3f50efafc626d61ec927ae1728) Thanks [@gustavovalverde](https://github.com/gustavovalverde)! - After-commit hooks run again when an app loads more than one copy of `@better-auth/core`. Since 1.7.28, a hook queued by one copy and run by a copy from a different release failed with `TypeError: hook is not a function`, so cache evictions and other after-commit work were skipped or the committed request was rejected.
+
+- [`23adcb1`](https://github.com/better-auth/better-auth/commit/23adcb11d77b085b94c58cda78766ffda278d36d) Thanks [@gustavovalverde](https://github.com/gustavovalverde)! - Database errors that carry a driver code other than a unique violation are no longer treated as unique violations when their message contains words such as "duplicate key". Device code creation now returns the original database error instead of retrying and failing with "Failed to generate a unique device code", and verification and client metadata document registration no longer fall back to an existing record for such errors. SQLite primary key collisions and MongoDB `11001` duplicate key errors are now recognized by their code, and a SQLite error with only the base constraint code, or a libSQL `PROXY_ERROR` for a write forwarded by a replica, is matched only by SQLite's "UNIQUE constraint failed" wording.
+
 ## 1.7.28
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @better-auth/oauth-provider
 
+## 1.7.29
+
+### Patch Changes
+
+- [#12951](https://github.com/better-auth/better-auth/pull/12951) [`1e05684`](https://github.com/better-auth/better-auth/commit/1e05684af9f0f7fc226651d2453283f5b06dc740) Thanks [@gustavovalverde](https://github.com/gustavovalverde)! - Fix the resource admin endpoints returning a 500 with the Drizzle adapter when a resource or client-resource link already exists. Creating a duplicate resource now returns the 400 "already exists" error, and linking an already linked client returns `alreadyLinked: true`. Other database errors are no longer reported as "already exists" when the resource identifier or client ID contains words such as "duplicate" or "unique".
+
 ## 1.7.28
 
 ### Patch Changes
